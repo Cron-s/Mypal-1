@@ -1,0 +1,11 @@
+bswap.h
+emms.h
+intmath.h
+intreadwrite.h
+list
+pixelutils.asm
+pixelutils.h
+pixelutils_init.c
+timer.h
+x86inc.asm
+x86util.asm

@@ -427,11 +427,15 @@ FFmpegVideoDecoder<LIBAV_VER>::GetCodecId(const nsACString& aMimeType)
     return AV_CODEC_ID_H264;
   }
 
+  if (aMimeType.EqualsLiteral("video/mp4; codecs=hvc1")) {
+    return AV_CODEC_ID_HEVC;
+  }
+
   if (aMimeType.EqualsLiteral("video/x-vnd.on2.vp6")) {
     return AV_CODEC_ID_VP6F;
   }
 
-#if LIBAVCODEC_VERSION_MAJOR >= 54
+/*#if LIBAVCODEC_VERSION_MAJOR >= 54
   if (VPXDecoder::IsVP8(aMimeType)) {
     return AV_CODEC_ID_VP8;
   }
@@ -441,7 +445,7 @@ FFmpegVideoDecoder<LIBAV_VER>::GetCodecId(const nsACString& aMimeType)
   if (VPXDecoder::IsVP9(aMimeType)) {
     return AV_CODEC_ID_VP9;
   }
-#endif
+#endif*/
 
   return AV_CODEC_ID_NONE;
 }
